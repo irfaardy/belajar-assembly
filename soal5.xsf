@@ -1,0 +1,83 @@
+;"#C:\Program Files (x86)\Rigel\Reads51\Include\sfr51.inc"
+; --- 8051 registers ---
+ACC        data    0xE0
+B          data    0xF0
+DPH        data    0x83
+DPL        data    0x82
+IE         data    0xA8
+IP         data    0xB8
+P0         data    0x80
+P1         data    0x90
+P2         data    0xA0
+P3         data    0xB0
+PCON       data    0x87
+PSW        data    0xD0
+SBUF       data    0x99
+SCON       data    0x98
+SP         data    0x81
+TCON       data    0x88
+TH0        data    0x8C
+TH1        data    0x8D
+TL0        data    0x8A
+TL1        data    0x8B
+TMOD       data    0x89
+
+; --- 8051 register bit fields ---
+; IE
+EA         bit     0xAF
+ES         bit     0xAC
+ET1        bit     0xAB
+EX1        bit     0xAA
+ET0        bit     0xA9
+EX0        bit     0xA8
+; IP 
+PS         bit     0xBC
+PT1        bit     0xBB
+PX1        bit     0xBA
+PT0        bit     0xB9
+PX0        bit     0xB8
+; P3
+RD         bit     0xB7
+WR         bit     0xB6
+T1         bit     0xB5
+T0         bit     0xB4
+INT1       bit     0xB3
+INT0       bit     0xB2
+TXD        bit     0xB1
+RXD        bit     0xB0
+; PSW
+CY         bit     0xD7
+AC         bit     0xD6
+F0         bit     0xD5
+RS1        bit     0xD4
+RS0        bit     0xD3
+OV         bit     0xD2
+P          bit     0xD0
+; TCON
+TF1        bit     0x8F
+TR1        bit     0x8E
+TF0        bit     0x8D
+TR0        bit     0x8C
+IE1        bit     0x8B
+IT1        bit     0x8A
+IE0        bit     0x89
+IT0        bit     0x88
+; SCON
+SM0        bit     0x9F
+SM1        bit     0x9E
+SM2        bit     0x9D
+REN        bit     0x9C
+TB8        bit     0x9B
+RB8        bit     0x9A
+TI         bit     0x99
+RI         bit     0x98
+
+
+org 0000h
+start:
+Mov a,p0
+xrl a,#F1H
+
+mov p1,a
+sjmp start
+end
